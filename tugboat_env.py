@@ -134,11 +134,11 @@ env = TugboatDockingEnv(num_obstacles=3)
 obs, _ = env.reset()
 env.render()
 model = PPO("MlpPolicy", env, verbose=1)
-model.learn(total_timesteps=3_000)
+model.learn(total_timesteps=300_000)
 
 obs, _ = env.reset()
 env.render()
-for _ in range(10):
+for _ in range(3000):
     action, _ = model.predict(obs)
     obs, reward, done, _, _ = env.step(action)
     env.render()
